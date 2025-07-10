@@ -1,0 +1,25 @@
+{
+  "name": "02.-blog-web-application",
+  "version": "1.0.0",
+  "description": "practice from the The Complete Full-Stack Web Development Bootcamp course",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SamW314/Blog-web-application.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SamW314/Blog-web-application/issues"
+  },
+  "homepage": "https://github.com/SamW314/Blog-web-application#readme",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0"
+  }
+}

@@ -1,0 +1,13 @@
+<%- include("partials/header.ejs") %>
+
+<h1> Artical Collection </h1>
+
+<% if (locals.curTopic){ %>
+    <% curTopic.forEach((topic)=>{ %>
+        <li>
+            <%= topic.title %>
+        </li>
+    <% }) %>
+<% } %>
+
+<%- include("partials/footer.ejs") %>

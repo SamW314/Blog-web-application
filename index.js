@@ -109,7 +109,7 @@ app.get("/:topicTitle/:articalTitle", (req, res) => {
   if (foundTopic) {
     const foundArtical = foundTopic.content.find(artical => artical.title.toLowerCase().replace(/\s+/g, "") === requestedArtical);
     if (foundArtical){
-        res.render("artical.ejs", {artical: foundArtical});
+        res.render("artical.ejs", {artical: foundArtical, topic: foundTopic});
     }
     else{
         res.status(404).send("artical not found");
@@ -119,6 +119,13 @@ app.get("/:topicTitle/:articalTitle", (req, res) => {
     res.status(404).send("topic not found");
   }
 });
+
+// artical deletion
+app.post("/:topicTitle/deleteArtical", (req, res) => {
+    const curTopic = topics.find(topic => topic.title.toLowerCase().replace(/\s+/g, "") === req.body["topicTitle"].toLowerCase().replace(/\s+/g, ""))
+    curTopic.content = curTopic.content.filter(artical => artical.id !== req.body["articalID"]);
+    res.redirect("/"+req.body["topicTitle"].toLowerCase().replace(/\s+/g, ""));
+})
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);

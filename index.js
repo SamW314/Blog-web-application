@@ -66,6 +66,24 @@ app.post("/deleteTopic", (req, res) => {
     res.redirect("/");
 })
 
+// topic edition
+app.post("/editTopic", (req, res) => {
+    res.render("editTopic.ejs", {repeat: false,
+                                oldTopic: topics.find(topic => topic.title.toLowerCase() === (req.body["topicTitle"]).toLowerCase())
+    });
+})
+app.post("/:topicTitle", (req, res) => {
+  const requestedTitle = req.params.topicTitle.toLowerCase();
+  const foundTopic = topics.find(topic => topic.title.toLowerCase() === requestedTitle);
+
+  if (foundTopic) {
+    foundTopic.title = req.body["newTitle"];
+    res.render("topic.ejs", { topic: foundTopic });
+  } else {
+    res.status(404).send("Post not found");
+  }
+});
+
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });

@@ -1,0 +1,13 @@
+<%- include("partials/header.ejs") %>
+
+<h1> edit topic </h1>
+
+<form action=<%= "/" + oldTopic.title %> method="POST">
+  <input name="newTitle" type="text" value="<%= oldTopic.title %>">
+</form>
+
+<% if (repeat){ %>
+    <p class="warning">please enter a new topic name</p>
+<% } %>
+
+<%- include("partials/footer.ejs") %>

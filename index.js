@@ -60,6 +60,12 @@ app.get("/:topicTitle", (req, res) => {
   }
 });
 
+// topic deletion
+app.post("/deleteTopic", (req, res) => {
+    topics = topics.filter(topic => topic.title !== req.body["title"]);
+    res.redirect("/");
+})
+
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });

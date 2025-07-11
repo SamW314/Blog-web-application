@@ -1,0 +1,11 @@
+<%- include("partials/header.ejs") %>
+
+<h1> create new artical </h1>
+
+<form action=<%= "/"+curTopic.replace(/\s+/g, "")+"/newArtical" %> method="POST">
+  <input name="title" type="text" placeholder="title">
+  <input name="content" type="text" placeholder="content">
+  <button type="submit">Submit</button>
+</form>
+
+<%- include("partials/footer.ejs") %>

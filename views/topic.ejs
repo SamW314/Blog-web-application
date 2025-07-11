@@ -2,6 +2,16 @@
 
 <h1> <%= topic.title %> </h1>
 
+<ul class="articalList">
+    <% if (locals.topic){ %>
+        <% topic.content.forEach((artical)=>{ %>
+            <li>
+                <a href= <%= "/" + topic.title.replace(/\s+/g, "") + "/" + artical.title.replace(/\s+/g, "") %>> <%= artical.title %> </a>
+            </li>
+        <% }) %>
+    <% } %>
+</ul>
+
 <form action="/deleteTopic" method="POST">
   <input type="hidden" name="title" value="<%= topic.title %>">
   <button type="submit" class="btn btn-danger">Delete Topic</button>
@@ -11,5 +21,7 @@
   <input type="hidden" name="topicTitle" value="<%=topic.title%>">
   <button type="submit" class="btn btn-dark">edit Topic</button>
 </form>
+
+<a href= <%= "/"+topic.title.replace(/\s+/g, "")+"/newArtical" %> class="btn btn-primary">Create a new Artical</a>
 
 <%- include("partials/footer.ejs") %>

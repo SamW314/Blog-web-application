@@ -8,7 +8,7 @@
     <% if (locals.curTopic){ %>
         <% curTopic.forEach((topic)=>{ %>
             <li>
-                <a href= <%= "/" + topic.title %>> <%= topic.title %> </a>
+                <a href= <%= "/" + topic.title.replace(/\s+/g, "") %>> <%= topic.title %> </a>
             </li>
         <% }) %>
     <% } %>

@@ -2,7 +2,7 @@
 
 <h1> edit topic </h1>
 
-<form action=<%= "/" + oldTopic.title %> method="POST">
+<form action=<%= "/" + oldTopic.title.replace(/\s+/g, "") %> method="POST">
   <input name="newTitle" type="text" value="<%= oldTopic.title %>">
 </form>
 

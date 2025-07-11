@@ -6,4 +6,8 @@
   <input name="topic title" type="text" placeholder="enter your new topic name">
 </form>
 
+<% if (repeat){ %>
+    <p class="warning">please enter a new topic name</p>
+<% } %>
+
 <%- include("partials/footer.ejs") %>

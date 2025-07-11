@@ -2,12 +2,16 @@
 
 <h1> Artical Collection </h1>
 
-<% if (locals.curTopic){ %>
-    <% curTopic.forEach((topic)=>{ %>
-        <li>
-            <%= topic.title %>
-        </li>
-    <% }) %>
-<% } %>
+<a href="/newTopic" class="btn btn-dark">Create a new Topic</a>
+
+<ul class="topicList">
+    <% if (locals.curTopic){ %>
+        <% curTopic.forEach((topic)=>{ %>
+            <li>
+                <a href= <%= "/" + topic.title %>> <%= topic.title %> </a>
+            </li>
+        <% }) %>
+    <% } %>
+</ul>
 
 <%- include("partials/footer.ejs") %>
